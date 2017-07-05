@@ -22,7 +22,7 @@ for noise_wav_loc in merge_wavs:
 
     noise_frames = np.array(noise_wav.readframes(source_wav_len))
 
-    merged_wav = source_frames / noise_frames
+    merged_wav = (source_frames + noise_frames) / 2
 
     output_wav = wave.open('helloworld-' + noise_wav_loc[:3] + ".wav")
     output_wav.setframerate(source_wav_sample)
